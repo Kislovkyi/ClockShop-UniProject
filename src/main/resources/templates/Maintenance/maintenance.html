@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Angestellte</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title">Maintenance</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/maintenance}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" th:placeholder="#{maintenance.search}">
+                                </form>
+                            </div>
+                            <div class="add">
+                                <a href="addMaintenance"
+                                   class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{maintenance.add}"
+                                >Add Maintenance</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{maintenance.company}">Company</th>
+                                <th scope="col" th:text="#{maintenance.tower}">Tower Clock</th>
+                                <th scope="col" th:text="#{maintenance.building}">Building</th>
+                                <th scope="col" th:text="#{maintenance.contactPerson}"></th>
+                                <th scope="col" th:text="#{maintenance.address}"></th>
+                                <th scope="col" th:text="#{maintenance.price}">Price</th>
+                                <th scope="col" th:text="#{maintenance.action}">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+                            <tr th:each=" entry : ${maintenance}">
+                                <td th:text="${entry.getCompany()}"></td>
+                                <td th:text="${entry.getTowerQuantity()}"></td>
+                                <td th:text="${entry.getBuildingQuantity()}"></td>
+                                <td th:text="${entry.getContactPerson()}"></td>
+                                <td th:text="${entry.getAddress()}"></td>
+                                <td th:text="${entry.getPrice()}"></td>
+                                <td>
+                                    <div class="icon-container">
+                                        <a th:href="'/update-maintenance?id=' + ${entry.getId()}" class="btn btn-delete-light"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/></svg></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/maintenance?page=' + ${page - 1 }"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/maintenance?page=' + ${page + 1}"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

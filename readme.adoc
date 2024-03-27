@@ -1,0 +1,45 @@
+image:https://github.com/st-tu-dresden-praktikum/swt23w09/workflows/CI%20build/badge.svg["CI Build", link="https://github.com/st-tu-dresden-praktikum/swt23w09/actions"]
+image:https://img.shields.io/badge/SonarQube-checked-blue?logo=sonarqube["SonarQube status", link="https://st-lab-ci.inf.tu-dresden.de/sonarqube/"]
+
+// Hi there! We've already included some generally useful information in here.
+// Feel free to edit the first section to add a short description of your task and your project.
+
+= Clock shop
+
+The "clock shop" is a project under the Software Technology Project 2023.
+
+To keep it short: this piece of software is intended to make it possible for the owner of a "clock shop" to organize his business.
+For more details see our link:src/main/asciidoc/pflichtenheft.adoc[Requirements specification (Pflichtenheft)]
+
+== Important documents you might want to watch (pun intended)
+
+* link:src/main/asciidoc/protocols[Meeting Protocols]
+* link:src/main/asciidoc/time_recording.adoc[Time recording (Zeiterfassung)]
+* link:src/main/asciidoc/pflichtenheft.adoc[Requirements specification (Pflichtenheft)]
+* link:src/main/asciidoc/developer_documentation.adoc[Developer documentation (Entwicklerdokumentation)]
+
+== The repository layout
+
+The repository follows the standard Maven project layout. Nearly all artifacts are stored in a subdirectory of `src/`:
+
+  src/
+  ├── main/
+  │   ├── asciidoc/   -- Documentation of the development process and application (Asciidoc format)
+  │   ├── java/       -- Main source code of the application, separated into packages
+  │   └── resources/  -- Static assets (images, stylesheets), Thymeleaf templates, etc.
+  └── test/
+      └── java/       -- Source code of JUnit tests is stored separately
+
+**Pro tip:** In GitHub, press *t* and a "fuzzy file finder" will appear, making it easy to navigate to a file.
+
+== How to run the application?
+
+* In the IDE: find `Application.java`, right-click project, select "Run As > Java Application"
+* From the command line: run `./mvnw spring-boot:run`
+* open your Browser and visit `http://127.0.0.1:8080`
+* default admin user is named `boss` and has the password `123`
+
+== How to package the application?
+
+* Run `./mvnw clean package`. The packaged application (a JAR in `target/`) can be run with `java -jar $jarName`.
+

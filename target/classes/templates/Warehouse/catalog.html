@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title th:text="#{catalog.title}">Katalog</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title" th:text="#{catalog.title}">Catalog</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/catalog}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" th:placeholder="#{inventory.search_product_name}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{catalog.t_title}">Titel</th>
+                                <th scope="col" th:text="#{catalog.category}">Category</th>
+                                <th scope="col" th:text="#{catalog.amount}" >Anzahl</th>
+                                <th scope="col" th:text="#{catalog.price}">Preis</th>
+                                <th scope="col" th:text="#{catalog.quantity}">Quantity</th>
+                            </tr>
+                            </thead>
+
+                            <tbody th:remove="all-but-first">
+                            <tr th:each="article : ${catalog}">
+                                <td class="py-5" th:text="${article.getName()}"></td>
+                                <td>
+                                    <span class="badge-category" th:each="category : ${article.getCategories().toList()}" th:text="${category}"></span>
+                                </td>
+                                <td class="py-5">
+                                    <span th:class="${inventory.findSaleItem(article.getId()).getQuantity().getAmount() > 0} ? 'badge-stock' : (${inventory.findSaleItem(article.getId()).getQuantity().getAmount() == 0} ? 'badge-outOfStock')"
+                                          th:text="${inventory.findSaleItem(article.getId()).getQuantity().getAmount() > 0 ? (inventory.findSaleItem(article.getId()).getQuantity().getAmount() + ' in Stock' ) : 'Out Of Stock'}">
+                                    </span>
+                                </td>
+                                <td class="py-5" th:text="${article.getPrice()}"></td>
+                                <td class="py-5">
+                                    <form class="ui form" method="post" th:action="@{/cart}">
+                                        <div class="view">
+                                            <input type="hidden" name="pid" value="0" th:value="${article.id}"/>
+
+                                            <div class="btn-content">
+                                                <label for="number"></label>
+                                                <input class="forms-control" type="number" name="number" id="number" value="0" th:max="${inventory.findSaleItem(article.getId()).getQuantity()}" min="0">
+                                                <div class="btn-eye">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3M7 18c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-9.8-3.2v-.1l.9-1.7h7.4c.7 0 1.4-.4 1.7-1l3.9-7l-1.7-1l-3.9 7h-7L4.3 2H1v2h2l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1c0 1.1.9 2 2 2h12v-2H7.4c-.1 0-.2-.1-.2-.2"/></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/catalog?page=' + ${page - 1 }"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/catalog?page=' + ${page + 1}"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

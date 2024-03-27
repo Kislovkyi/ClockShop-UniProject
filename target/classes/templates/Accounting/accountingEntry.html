@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title th:text="#{accounting.title}">Bankaccount</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container">
+        <p class="page-title">Invoice</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title">
+                            <div th:if="${!entryType.equals('ENTRY')}">
+
+                                <span th:text="${accEntry.getDescription()} + (${canceled} ? ' CANCELLATION' : '')" class="accounting-title"></span>
+                            </div>
+                            <span th:text="${outEntry} ? 'Sortout' : ''" class="accounting-title"></span>
+                            <span th:if="${salEntry}" th:text="${accEntry.getDescription()}" class="accounting-title"></span>
+                            <span th:if="${maintenanceEntry}" th:text="${accEntry.getDescription()}" class="accounting-title"></span>
+                        </div>
+                        <div class="d-sm-flex">
+                            <div class="add">
+                                <div class="view">
+                                    <div class="btn-content">
+                                        <div class="btn-ey">
+                                            <a th:href="@{/accounting}" class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="Back">
+                                                Add Repair
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="invoice-rows">
+                            <div class="invoice-col-xl-12">
+                                <div class="invoice-rows">
+                                    <div class="col-xl-4">
+                                        <p class="text-muted">Billing From :</p>
+                                        <p class="text">Uhrenladen Gmbh</p>
+                                        <p class="mb-1 text-muted">Uhrenladenstr. 86</p>
+                                        <p class="mb-1 text-muted">01187,Dresden,Sachsen,Deutschland</p>
+                                        <p class="mb-1 text-muted">uhrenladen@gmail.com</p>
+                                        <p class="mb-1 text-muted">01089128</p>
+                                    </div>
+                                    <div th:if="${oEntry != null && !entryType.equals('BUY')}" class="col-xl-4 ms-automation">
+                                        <p class="text-muted">Billing To :</p>
+                                        <p class="text" th:text="${order.getForename()} + ' ' + ${order.getName()}">Tony Stark</p>
+                                        <p class="text-muted" th:text="${order.getAddress()}">street</p>
+                                        <p class="text-muted" th:text="${order.getAddress()}">city</p>
+                                        <p class="text-muted" th:text="${order.getEmail()}">uhedh@gmail.com</p>
+                                        <p class="text-muted" th:text="${order.getTelephone()}">telefon</p>
+                                    </div>
+                                    <div th:if="${maintenanceEntry}" class="col-xl-4 ms-automation">
+                                        <p class="text-muted">Billing To :</p>
+                                        <p class="text" th:text="${maintenanceEntry.getContactPerson()}">Tony Stark</p>
+                                        <p class="text-muted" th:text="${maintenanceEntry.getAddress()}">street</p>
+                                        <p class="text-muted" th:text="${maintenanceEntry.getCompany()}">street</p>
+                                    </div>
+                                    <div th:if="${salEntry}" class="col-xl-4 ms-automation">
+                                        <p class="text-muted">Billing To :</p>
+                                        <p class="text" th:text="${employeeManagement.findById(salEntry.getEmployeeIdentifier()).getForename()} + ' ' + ${employeeManagement.findById(salEntry.getEmployeeIdentifier()).getName()}">Tony Stark</p>
+                                        <p class="text-muted" th:text="${employeeManagement.findById(salEntry.getEmployeeIdentifier()).getAddress()}">address</p>
+                                        <p class="text-muted" th:text="${employeeManagement.findById(salEntry.getEmployeeIdentifier()).getEmail()}">email</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <p class="fw-medium text-muted mb-1">Invoice ID:</p>
+                                <p class="fs-15 mb-1" th:text="${accEntry.getDescription()}">#ij8dj38jd</p>
+                            </div>
+                            <div class="col-xl-3">
+                                <p class="fw-medium text-muted mb-1">Datum:</p>
+                                <p class="fs-15 mb-1" th:text="${accEntry.getDate().get().getDayOfMonth() + '.' + accEntry.getDate().get().getMonthValue() + '.' + accEntry.getDate().get().getYear() + ' ' + accEntry.getDate().get().getHour() + ':' + accEntry.getDate().get().getMinute() + ':' + accEntry.getDate().get().getSecond()}">47.06.2020</p>
+                            </div>
+                            <div class="col-xl-3" th:if="${salEntry}">
+                                <p class="fw-medium text-muted mb-1">Due Amount:</p>
+                                <p class="fs-16 mb-1 fs-red" th:text="${accEntry.getValue()}">$210</p>
+                            </div>
+                            <div class="col-xl-3" th:if="${maintenanceEntry}">
+                                <p class="fw-medium text-muted mb-1">Due Amount:</p>
+                                <p class="fs-16 mb-1 fs-green" th:text="${accEntry.getValue()}">$210</p>
+                            </div>
+                            <div class="col-xl-3" th:if="${outEntry}">
+                                <p class="fw-medium text-muted mb-1">Due Amount:</p>
+                                <p class="fs-16 mb-1 fs-red" th:text="${accEntry.getValue()}">$210</p>
+                            </div>
+                            <div class="col-xl-3"></div>
+                            <div class="invoice-table-col-xl-12">
+                                <table th:if="${oEntry}" class="invoice-table" >
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Item Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Item Price</th>
+                                        <th scope="col">Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each=" line : ${orderLines}">
+                                        <td th:text="${line.getProductName()}" >Clementine</td>
+                                        <td th:text="${oEntry.description.contains('canceled')} ? ${line.getQuantity()} : ${line.getQuantity().negate()}">4</td>
+                                        <td th:text="${inventoryManagement.findProduct(line.getProductIdentifier()).getPrice()}"></td>
+                                        <td th:text="${inventoryManagement.findProduct(line.getProductIdentifier()).getPrice().multiply(line.getQuantity().getAmount().floatValue())}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table th:if="${outEntry}" class="invoice-table" >
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Item Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Item Price</th>
+                                        <th scope="col">Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td th:text="${product.getName()}" >Clementine</td>
+                                        <td th:text="${outEntry.getQuantity()}">4</td>
+                                        <td th:text="${product.getPrice()}"></td>
+                                        <td th:text="${product.getPrice().multiply(outEntry.getQuantity().getAmount().floatValue()).multiply(-1)}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-xl-3 ms-automation" th:if="${oEntry}" th:unless="${extraCharges[0].price != 'EUR 0.00' and extraCharges.size() == 1}">
+                                <p class="fw-medium text-muted mb-1">Extra Charges</p>
+                                <div th:each="extra : ${extraCharges}" th:if="${extra.price != 'EUR 0.00'}">
+                                    <p class="fs-15 mb-1">
+                                        <span th:text="${extra.price}" class="fs-green"></span>
+                                        <span th:text="${extra.description}"></span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3" th:if="${oEntry}">
+                                <p class="fw-medium text-muted mb-1">Due Amount:</p>
+                                <p class="fs-16 mb-1 fs-green" th:text="${accEntry.getValue()}">$210</p>
+                            </div>
+                            <div class="invoice-table-col-xl-12" th:if="${oEntry}">
+                                <h3> Cancel Order </h3>
+
+                                <form class="ui form" th:action="@{/accounting-cancel}" method="post">
+                                    <div class="view">
+                                        <div class="btn-content">
+                                            <div class="btn-e">
+                                                <label>
+                                                    Reason:
+                                                    <input id="orderIdString" name="orderIdString" th:value="${oEntry.getOrderIdentifier()}" type="hidden">
+                                                    <input class="form-control" id="reason" name="reason" type="text" >
+                                                </label>
+                                            </div>
+                                            <button type="submit" class="btn-cancel-order"> Cancel </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

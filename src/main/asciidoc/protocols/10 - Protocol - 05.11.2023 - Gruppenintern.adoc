@@ -1,0 +1,79 @@
+= Protokoll Gruppe 09
+
+Treffen am 05.11.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   20:00 Uhr +
+Ende:     21:20 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+06.11.2023, 9:20 Uhr, APB| Sitzgruppe
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Tim
+- Hu Ann
+- Tobias
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Krankheitsbedingt findet dieses Meeting Online statt :c
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |2er Gruppen bilden |Pair-programming  |jeder |erledigt
+|... |Prototypen der einzelnen Programmbestandteile |Aufteilung ausstehend|jeder |in Bearbeitung
+|2  |Klare Unterscheidung zwischen Meeting Arten| Protokolle einteilen in Stand-UP und Gruppenintern| Darius| erledigt
+|3  |Zeitplan Verwaltung| Eintragen der Arbeitszeiten in github| Darius| erledigt
+|4  |Naming Convention beachten| Stimmiges Gesamtbild durch stimmige Var-Bezeichnungen| Alle| erledigt
+|5  |Pflichtenheft Revision    | Ausbesserung der Kritik des Kunden| erledigt - feedback ausstehend
+
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte :
+
+- Verteilung verbleibender Aufgaben
+
+- Arbeit im Team
+
+- Fragen in der Gruppe
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|5|can't link css stylesheet in template login.html|In the "Personalmanagement" branch, the link between the login.html and the style.css file does not work. It appears that the coherent stylesheet is not to be found or either there are permission that are needed to be set correctly.|Darius|offen
+|6|Usecase Login| Login bereits im Framework enthalten? Wie Sequenzdiagramm? ( evtl. nicht nötig? )|Huu An| offen
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

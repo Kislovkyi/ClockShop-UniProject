@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="DE">
+
+<head>
+    <title th:text="#{inventory.title}">Inventory</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="accounting-container">
+        <div class="product-layout">
+
+
+
+            <p th:text="${article.getName()}" class="pages-title">ItemName</p>
+
+
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+
+
+                                                    <div class="col-xl-6" th:each="locOb : ${locationObjects}">
+                                                        <form method="POST" th:action="@{/moveItems}">
+                                                        <!-- WarehouseId change -->
+
+                                                            <div class="col-xl-61">
+                                                                <label class="form-label" th:text="${locOb.getWarehouseId()}">WarehouseId</label>
+                                                                <input class="form-control" type="text" id="warehouseId" name="warehouseId" th:value="${locOb.getWarehouseId()}" readonly/>
+                                                            </div>
+
+                                                        <!-- WarehouseId quantity -->
+                                                            <div class="col-xl-61">
+                                                                <label class="form-label" th:text="Quantity" for="obQuantity"></label>
+                                                                <input class="form-control" type="text" id="obQuantity" th:value="${locOb.getQuantity()}" readonly/>
+                                                            </div>
+
+                                                            <div class="col-xl-61">
+                                                                <label class="form-label" th:text="ChangeQuantity"></label>
+                                                                <input class="form-control" name="quantityChange" type="number" th:value="0" step="1" min="0" th:max="${locOb.getQuantity()}"/>
+                                                            </div>
+
+                                                            <div class="col-xl-63">
+                                                                <label th:text="NewLocation" for="loc"></label>
+                                                                <div class="select">
+                                                                    <select id="loc" name="loc" >
+                                                                        <option th:each="location : ${locations}" th:text="${location}" th:value="${location}"></option>
+                                                                    </select>
+                                                                    <span class="focus"></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xl-61">
+                                                                <button class="btn btn-primary" type="submit" th:text="Move"></button>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <a href="/inventory" class="btn-cancel">Back</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

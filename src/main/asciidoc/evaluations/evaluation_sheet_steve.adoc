@@ -1,0 +1,29 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2023/24
+
+**Von:**
+Steve Lang
+
+**Gruppe:**
+SWT09
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+gelernt: Programmierkenntnisse augefrischt bzw. verbessert,
+organisierte Gruppenarbeit, Umsetzung von Kundenwünschen,
+Frameworks,
+Java
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Die Erfahrungen mit der Zusammenarbeit als Team war mehr als positiv. Die Stimmung war extrem lustig und fröhlich und die Beziehungen zueinander war stehst auf Augenhöhe und hilfsbereit und freundlich.
+Das nächste mal wär es besser, das man versucht am Ende des Projekts, dass nicht einer die ganze Last auf sich nehmen soll, sondern die Aufgaben besser gerechter verteilt werden soll.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Frameworks können die Arbeit erheblich vereinfachen. Viele Funktionen sind schon implementiert.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Ich habe keine Vorschläge für Verbesserungen. Ich fands gut.
+
+== Feedback für den Tutor
+Sehr nett und sympatisch. Hat sehr viel fachwissen und konnte uns bei Fehlern direkt helfen. Ab und zu wäre es schön, dass man Feedback bekommen könnte wie weit vorn bzw. weit weg wir von den anderen Gruppen sind.
+
+== Sonstiges und Anmerkungen
+Allerdings stimmt der tatsächliche Arbeitsaufwand nicht ansatzweise mit dem im Modul angegebenen Aufwand überein.

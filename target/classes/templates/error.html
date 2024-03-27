@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/resources/css/error/stylesheet.css" rel="stylesheet" crossorigin="anonymous"/>
+    <title th:text="${errorCode} + ' - ' + ${errorString}">500 - Interner Serverfehler</title>
+
+</head>
+<body>
+<h1 class="error-code"   th:text="${errorCode}">500</h1>
+<p class="error-message" th:text="${errorString}">Interner Serverfehler</p>
+<a href="/" class="back-to-home">Zurück zur Startseite</a>
+</body>
+</html>

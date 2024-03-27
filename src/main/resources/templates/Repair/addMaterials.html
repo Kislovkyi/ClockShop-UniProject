@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Repair</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title">Repair</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="add">
+                                <form th:action="@{/repair/complete}" method="post" style="display: flex; align-items: center;">
+                                    <input type="hidden" th:value="${repairObj.getId()}" name="repairId" />
+                                    <button class="btn btn-primary btn-sm btn-wave waves-effect waves-light" type="submit" >COMPLETE REPAIR </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{repair.addMaterials.name}">name</th>
+                                <th scope="col" th:text="#{repair.addMaterials.quantity}">quantity</th>
+                                <th scope="col" th:text="#{repair.addMaterials.price}">price</th>
+                                <th scope="col" th:text="#{repair.addMaterials.total}">Added Materials</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+                            <tr  th:each=" item : ${materials}">
+                                <form th:if="${item.getWarehouseId().contains('V')}" class="ui form" th:action="@{/repair/addMaterial}" method="post">
+                                    <td  class="py-5" th:text="${item.getArticle().name}"> </td>
+                                    <td class="py-5">
+
+                                        <div class="view">
+
+                                            <input id="articleId" type="hidden" name="articleId" th:value="${item.getArticle().id}">
+
+                                            <div class="btn-content">
+
+                                                <input class="forms-control forms-control-sm" type="number" id="quantity" name="quantity"  th:max="${item.getQuantity()}" min="0" value="0">
+                                                <div class="btn-eye">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3M7 18c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-9.8-3.2v-.1l.9-1.7h7.4c.7 0 1.4-.4 1.7-1l3.9-7l-1.7-1l-3.9 7h-7L4.3 2H1v2h2l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1c0 1.1.9 2 2 2h12v-2H7.4c-.1 0-.2-.1-.2-.2"/></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td  class="py-5" th:text="${item.getArticle().price}"></td>
+                                    <td class="py-5" id="submitQuantity" th:text="${materialMap.getOrDefault(item.getArticle().id,0)}" ></td>
+                                </form>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        
+                        <div class="d-flex align-items-center">
+                            
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/repair-addMaterials?page=' + ${page - 1 }"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/repair-addMaterials?page=' + ${page + 1}"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                    
+                                    
+                                </div>
+                                
+                            </div>
+                              
+                        </div>
+                        
+                    </div>
+                    <div class="px-4 py-3">
+                        <a href="/repair" class="btn-cancel" th:text="#{repair.cancel}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</section>
+</body>
+</html>

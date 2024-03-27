@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Angestellte</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title">Add Maintenance</p>
+
+            <form method="POST" th:action="@{/addMaintenance}">
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" for="company" th:text="#{maintenance.company} + ':'">Vertragspartner:</label>
+                                                        <input class="form-control" id="company" type="text" name="company" required>
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" for="contactPerson" th:text="#{maintenance.contactPerson} + ':'">Kontaktperson:</label>
+                                                        <input class="form-control" id="contactPerson" type="text" name="contactPerson" required>
+                                                    </div>
+                                                    <div class="main-col-xl-6">
+                                                        <label class="form-label" for="address" th:text="#{maintenance.address} + ':'">Vertragspartner:</label>
+                                                        <input class="form-control" id="address" type="text" name="address" required>
+                                                    </div>
+                                                    <div class="main-col-xl-6">
+                                                    </div>
+                                                    <div class="main-col-xl-6">
+                                                        <label class="form-label" for="towerQuantity" th:text="#{maintenance.tower} + ':'"></label>
+                                                        <input class="form-control" type="number" id="towerQuantity" name="towerQuantity" min="0" value="0">
+                                                    </div>
+                                                    <div class="main-col-xl-6">
+                                                        <label class="form-label" for="buildingQuantity" th:text="#{maintenance.building} + ':'"></label>
+                                                        <input class="form-control" type="number" id="buildingQuantity" name="buildingQuantity" min="0" value="0">
+                                                    </div>
+                                                    <div class="main-col-xl-6">
+                                                        <label class="form-label" th:text="#{maintenance.price} + ':'" for="price"></label>
+                                                        <input class="form-control" type="number" name="price" id="price" min="0" value="50">
+                                                    </div>
+                                                    <div class="main-col-xl-6">
+                                                        <label class="form-label" th:text="#{maintenance.price} + ':'" for="price2"></label>
+                                                        <input class="form-control" type="number" name="price2" id="price2" min="0"  value="50">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" type="submit" th:text="#{maintenance.add}" value="building" name="buldingSubmit">Add Maintenance</button>
+                                    <a href="/maintenance" class="btn-cancel">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

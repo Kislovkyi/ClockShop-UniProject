@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Edit Grandfather Clock</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title" th:text="#{gfc.edit}">Edit Grandfather Clock</p>
+
+            <form method="POST" th:action="@{/edit}" enctype="multipart/form-data">
+            <input type="hidden" name="id" th:value="${gfc.getId()}" />
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{gfc.title}" for="name">Title</label>
+                                                        <input class="form-control" id="name" name="name" type="text" th:value="${gfc.getName()}" required="required"/>
+                                                        <input type="hidden" th:value="${gfc.getId()}" name="gfcId" />
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{gfc.price}" for="price">Price</label>
+                                                        <input class="form-control" id="price" name="price" type="Number" min="0" th:value="${gfc.getPrice().getNumber()}" required="required"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label">Company Name</label>
+                                                        <div class="select">
+                                                            <select id="companyNameClock" name="companyName" required>
+                                                                <option th:each="company : ${companies}"
+                                                                        th:value="${company.companyName}"
+                                                                        th:text="${company.companyName}"></option>
+                                                            </select>
+                                                            <span class="focus"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{gfc.discount}" for="discount">Discount</label>
+                                                        <input class="form-control" id="discount" name="discount" type="Number" min="0" max="1" step="0.0001" th:value="${gfc.getDiscount()}" required="required"/>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <label class="form-label" for="des" th:text="#{gfc.description}">Product Description</label>
+                                                        <textarea id="des" name="des" class="form-control" rows="2" style="height: 94px" th:text="${gfc.getDescription()}"></textarea>
+                                                        <label class="form-label text-muted">*Description should not exceed 500 letters</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" type="submit" th:text="#{gfc.save}">Save Changes</button>
+                                    <a href="/gfclists" class="btn-cancel" th:text="#{gfc.cancel}">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

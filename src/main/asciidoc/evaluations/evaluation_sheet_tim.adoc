@@ -1,0 +1,49 @@
+evaluation_sheet.adoc= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2021/22
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von: Tim Lehmitz **
+
+**Gruppe: SWT09**
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+=== gelernt
+- weiter Erfahrungen mit Java, HTML, CSS
+- Organisatorische Aufgaben
+
+=== nicht gelernt
+- einen geregelten Tagesablauf während arbeitsintensiven Zeiten beibehalten
+- StarUML mehr als 1h zu benutzten, ohne einen mentalen Zusammenbruch zu erleiden
+
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswürdig? Was würden Sie das nächste Mal anders machen?
+Die Zusammenarbeit im Team lief grundlegend gut. Der Wille sich zusammen an Dinge zu setzten oder gemeinsam Probleme zu lösen war meistens gegeben. Leider hat uns zu Start des Projektes ein Teammitglied verlassen, dies geschah aus Zweifel an den eigenen Fähigkeiten, die einzige Sache, die mich wirklich daran gestört hat, ist das die schon vor dem ersten Tutor-Treffen gesehen ist.
+
+Teilweise fehlte etwas Eigeninitiative Dinge zu implementieren, besonders wenn noch Issues offen oder TODO's im Code sind.
+
+Ab einem gewissen Zeitpunkt sind die Scrum-Master-Tätigkeiten in meinem Aufgabenbereich gelandet, welches mich noch etwas mehr Arbeitszeit bedeutet hat ... Der Scrum-Master sollte eigentlich immer eine Übersicht über die Arbeit der verschiedenen Scrums und Gruppenmitglieder haben. Die Fähigkeit/Wille für eigens erstellte Funktionen Tests zu schreiben lief manchmal nicht so gut.
+
+Diese Dinge gesagt, der Großteil der Arbeit war aber sehr schön, hat Spaß gemacht, sei es im direkten Arbeiten am Projekt oder auch alles andere im Semester.
+
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+Es wäre evtl. Praktische eine zentrale Liste von Annotationen in der Dokumentation mit ihr Nutzen auflisten um den einstieg in diese über die Basics(@Controller, @Service, ...) hinausführen.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+Die Aufgaben des Scrum-Masters sollten am Start der Veranstaltung klarer veranschaulicht werden und es sollte klargemacht werden das diese Person immer einen Überblick über alles haben muss um die Leitung übernehmen zu können.
+
+StarUML sollte nicht mehr als Option für UML-ModellierungProgramme aufgeführt werden.
+
+== Feedback für den Tutor
+// Fühlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswürdig?
+Titus wirkte entspannt und schien sehr vertraut mit Spring, dem Salespoint-Framework und der Projektleitung. Mit Verständnisproblemen oder anderen Fragen konnte er immer eine Antwort bieten. Da meines Wissens der Kundenwunsch eine direkt vom Tutor erstellte Aufgabe ist, hier noch eine Anmerkung dazu:
+Die Aufgabe verschiedene Lager für die Items zu haben ist ein guter Check, ob die Gruppe sich mit Salespoint gut auskennt. Einen Teil von Salespoint nutzten zu müssen, den man noch nicht verwendet hat, ist dafür optimal. Allerdings hätte ich eine mehr Teilgebiete übergreifende Aufgabe noch besser gefunden, da in dieser Aufgabe zu großem Teil nur Änderungen im Inventory benötigt wurden ...
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?
+Wenn ich im nächsten Jahr Zeit finde, könnte ich mir auch vorstellen die Aufgabe des Tutors zu übernehmen.

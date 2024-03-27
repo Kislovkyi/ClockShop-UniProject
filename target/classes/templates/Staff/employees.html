@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Angestellte</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title">Employees</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/employees}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" th:placeholder="#{employee.search}">
+                                </form>
+                            </div>
+                            <div class="add">
+                                <a th:href="@{/register}"
+                                        class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{employee.add_employee}"
+                                >Add Employee</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{employee.username}">Username</th>
+                                <th scope="col" th:text="#{employee.email}">Email</th>
+                                <th scope="col" th:text="#{employee.contact}">Contact</th>
+                                <th scope="col" th:text="#{employee.role}">Role</th>
+                                <th scope="col" th:text="#{employee.action}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+                            <tr th:each=" employee : ${employeeList}">
+                                    <td>
+                                        <div class="flex-container">
+                                            <div class="image-container">
+                                                <img th:src="${employee.getImageUrl()}" alt="Profilbild" />
+                                                <div class="image-shadow" aria-hidden="true"></div>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-900" th:text="${employee.getUsername()}">Dieter Bohlen</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td th:text="${employee.getEmail()}">13.01.2024</td>
+                                    <td th:text="${employee.getTelephoneNumber()}"></td>
+                                    <td><span th:text="${employee.getRole()}" class="badge-category"></span></td>
+                                    <td>
+                                        <div class="icon-container">
+                                            <a th:href="@{'/editEmployee?username=' + ${employee.getUsername()}}"><button class="btn btn-edit-light"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m16.475 5.408l2.117 2.117m-.756-3.982L12.109 9.27a2.118 2.118 0 0 0-.58 1.082L11 13l2.648-.53c.41-.082.786-.283 1.082-.579l5.727-5.727a1.853 1.853 0 1 0-2.621-2.621"/><path d="M19 15v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3"/></g></svg></button></a>
+                                            <a th:href="@{'/employees?del=' + ${employee.getUsername()}}"><button class="btn btn-delete-light"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/></svg></button></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/employees?page=' + ${page - 1 }"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{pagination.prev}"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/employees?page=' + ${page + 1}" th:text="#{pagination.next}"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

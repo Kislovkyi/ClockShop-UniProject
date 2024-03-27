@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Angestellte</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title" th:text="#{inventory.title}">Inventory</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/inventory}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" th:placeholder="#{inventory.search_product_name}">
+                                </form>
+                            </div>
+                            <div class="add">
+                                <a href="inventory-newItem"
+                                   class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{inventory.new_product}"
+                                >New Product</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{inventory.name}"> Name</th>
+                                <th scope="col" th:text="#{inventory.warehouseID}"> WarehouseId</th>
+                                <th scope="col" th:text="#{inventory.category}"> Category</th>
+                                <th scope="col" th:text="#{inventory.amount}"> Amount</th>
+                                <th scope="col" th:text="#{inventory.price}"> Price</th>
+                                <th scope="col" th:if="${#strings.contains(#authentication.principal.authorities, 'ROLE_BOSS')}"
+                                    th:text="#{inventory.edit}">EditQuantity
+                                </th>
+                                <th scope="col" th:text="#{inventory.submit}">Submit</th>
+                                <th scope="col" th:text="#{inventory.action}" >Action</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr th:each="article : ${articles}"  th:if="${inventory.findSaleItem(article.getId()) != null}">
+
+                                <td class="py-5" th:text="${article.getName()}" th:class="${inventory.findSaleItem(article.getId()).getNonSeller()} ? 'nonSeller'"></td>
+
+                                <td class="py-5">
+                                    <span class="badge-category" th:each="warehouseId : ${inventory.findWarehouseIds(article.getId())}" th:text="${warehouseId}"></span>
+                                </td>
+                                <td class="py-5">
+                                    <span class="badge-category" th:each="category : ${article.getCategories().toList()}" th:text="${category}"></span>
+                                </td>
+                                <td class="py-5">
+                                    <span th:class="${inventory.findByArticleID(article.getId()).getTotalQuantity().isZeroOrNegative()} ? 'badge-outOfStock' : 'badge-stock'"
+                                          th:text="${inventory.findByArticleID(article.getId()).getTotalQuantity().isZeroOrNegative()} ? #{inventory.out_of_stock}:
+                                           (${inventory.findByArticleID(article.getId()).getTotalQuantity()} + '(' + ${inventory.findSaleItem(article.getId()).getQuantity()} +') '  + #{inventory.in_stock})">
+                                </span>
+                                </td>
+                                <td class="py-5" th:text="${article.price}"></td>
+                                <form class="ui form" th:action="@{/inventory/edit}" method="post">
+                                    <td th:if="${#strings.contains(#authentication.principal.authorities, 'ROLE_BOSS')}">
+                                        <label>
+                                            <input id="articleId" name="articleId" th:value="${article.id}"
+                                                   type="hidden"> </input>
+                                            <input class="forms-control" type="number" id="quantity" name="quantity"
+                                                   value="0" th:min="${inventory.findByArticleID(article.getId()).getTotalQuantity().negate()}">
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <button class="btn btn-primary" type="submit" th:text="#{inventory.submit}"></button>
+                                </form>
+                                </td>
+                                <form class="ui form" th:action="@{/inventory-details}" method="post">
+                                    <td class="py-5">
+                                        <label>
+                                            <input id="article" name="articleId" th:value="${article.id}" type="hidden">
+                                        </label>
+                                        <div class="button-class">
+                                            <a><button class="btn btn-edit-light" name="details">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                        <path d="m16.475 5.408l2.117 2.117m-.756-3.982L12.109 9.27a2.118 2.118 0 0 0-.58 1.082L11 13l2.648-.53c.41-.082.786-.283 1.082-.579l5.727-5.727a1.853 1.853 0 1 0-2.621-2.621"/><path d="M19 15v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3"/>
+                                                    </g></svg></button></a>
+
+                                            <a>
+                                                <a class="btn btn-delete-light" th:href="@{'/delete-article?articleId='+ ${article.getId()}}" type="submit" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/>
+                                                </svg>
+                                                </a>
+
+                                            </a>
+
+                                        </div>
+                                    </td>
+                                </form>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/inventory?page=' + ${page - 1 }"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/inventory?page=' + ${page + 1}"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

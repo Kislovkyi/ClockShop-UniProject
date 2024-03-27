@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="DE">
+
+<head>
+    <title th:text="#{inventory.title}">Inventory</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title" th:text="#{inventory.add_new}">Add Employee</p>
+
+            <form method="post" role="form" class="ui form" id="form" th:action="@{/inventory}" th:object="${ItemForm}">
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" for="articleName" th:text="#{inventory.name}">Forename</label>
+                                                        <input class="form-control" value="Gold" id="articleName" name="articleName" type="text" required="required"/>
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" for="price" th:text="#{inventory.price}">price</label>
+                                                        <input class="form-control" id="price" name="price" type="number" value="1000000" required="required" min="0" step="0.01"/><br/>
+                                                    </div>
+                                                    <div class="col-3-xl-6">
+                                                        <label class="form-label">Company</label>
+                                                        <div class="select">
+                                                            <select id="id" name="type">
+                                                                <option value="CLOCK" th:text="#{inventory.type.clock}"></option>
+                                                                <option value="MATERIAL" th:text="#{inventory.type.material}"></option>
+                                                                <option value="ACCESSORY" th:text="#{inventory.type.accessory}"></option>
+                                                            </select>
+                                                            <span class="focus"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <label class="form-label" for="description"
+                                                        >Product Description</label
+                                                        >
+                                                        <textarea
+                                                                id="description"
+                                                                class="form-control"
+                                                                rows="2"
+                                                                style="height: 94px"
+                                                        ></textarea>
+                                                        <label class="form-label text-muted"
+                                                        >*Description should not exceed 500
+                                                            letters</label
+                                                        >
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="discount" th:text="#{inventory.discount}">discount</label>
+                                                        <input class="form-control" id="discount" name="discount" type="number" value="0.5" required="required" min="0" step="0.01" max="1"/><br/>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="locationL" th:text="L-Warehouse"></label>
+                                                        <input class="form-control" id="locationL" name="locationL" type="text"  required="required"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="locationV" th:text="V-Warehouse"></label>
+                                                        <input class="form-control" id="locationV" name="locationV" type="text" required="required" /><br/>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" type="submit" >Add Item</button>
+                                    <a href="/inventory" class="btn-cancel">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+</section>
+</body>
+</html>

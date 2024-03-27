@@ -1,0 +1,88 @@
+= Protokoll Gruppe 09
+
+Treffen am 16.10.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   9:20 Uhr +
+Ende:     10:25 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+18.10.2023, 13:00 Uhr, APB| Sitzgruppe
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Illia
+- Tim
+- Hu Ann
+- Tobias
+- Darius - Schriftführer
+
+- Titus - Tutor/Kunde
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+### StandUp-Meeting mit dem Tutor/Kunden
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Einrichtung Git + IDE|Einrichtung          |jeder     |erledigt
+|…     |Guestbook Erweiterung|Einführung in Spring          |jeder     |erledigt
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte :
+
+- Kontrolle der Aufgaben
+- Teilen der Github-Account Namen
+
+Einlesen in Github-Repo :
+
+- Pflichtenheft
+- Vorlagen etc...
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Videoshop: Aufgabe 1| Crash abfangen wenn der Nutzername schon vergeben ist
+|Steve     |offen
+|…     |Videoshop: Aufgabe 4|- Wenn man im Warenkorb auf einen Film klickt zur Seite des Filmes verlinken
+
+- Layout bei großen Preisen fixen|Illia     |offen
+|…     |Videoshop: Aufgabe 5|Auf der Seite von Filmen anzeigen ob es sich um eine DVD oder BluRay handelt         |Tobias     |offen
+|…     |Videoshop: Aufgabe 6|Warenkorb leeren          |Darius     |offen
+|…     |Videoshop:
+Aufgabe 7|Von allen Bewertungen (siehe Comment.java) je Film den Durchschnitt bilden und diesen auf der
+Detailseite anzeigen          |Felix     |offen
+|…     |Videoshop: Aufgabe 10|- Eine primitive Suche einbauen um Filme nach Schlagwörtern zu finden.
+
+- Dabei sollte auch die Reihenfolge beachtet werden. So ist z.B. ein Ergebnis, bei dem der Suchbegriff im
+Titel auftaucht, vor einem Ergebnis, bei dem der Begriff nur im Genre auftaucht anzuzeigen.
+|Tim     |offen
+
+|===
+
+[small]_Note: Bisher keine Issues auf Github._
+

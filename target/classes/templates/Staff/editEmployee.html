@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Angestellte</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title">Edit Employee</p>
+
+            <form method="POST" th:action="@{edit_employee}" enctype="multipart/form-data">
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{employee.forename}" for="forename">Forename</label>
+                                                        <input class="form-control" type="text" id="forename" name="forename" th:placeholder="${employee.getForename()}"/>
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{employee.name}" for="name">Surename</label>
+                                                        <input class="form-control" type="text" id="name" name="name" th:placeholder="${employee.getName()}"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.username}" for="username">Username</label>
+                                                        <input class="form-control" type="text" id="username" name="username" th:value="${employee.getUsername()}" readonly/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.email}" for="email">Email</label>
+                                                        <input class="form-control" type="email" id="email" name="email" th:placeholder="${employee.getEmail()}"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.address}" for="address">Address</label>
+                                                        <input class="form-control" id="address" name="address"  th:placeholder="${employee.getAddress()}"><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.telephoneNumber}" for="telephoneNumber">Address</label>
+                                                        <input class="form-control" id="telephoneNumber" name="telephoneNumber"  th:placeholder="${employee.getTelephoneNumber()}"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <div class="checkbox-group">
+                                                            <label class="form-label">Roles</label>
+                                                            <div class="checkbox-row">
+                                                                <div class="checkbox-item">
+                                                                    <label class="form-label" for="role1" th:text="#{employee.role1}">Sales</label>
+                                                                    <input type="checkbox" id="role1" name="roles" value="SALE" th:checked="${employee.getRole().contains('SALE')}" />
+                                                                </div>
+                                                                <div class="checkbox-item">
+                                                                    <label class="form-label" for="role2" th:text="#{employee.role2}">Watcher</label>
+                                                                    <input type="checkbox" id="role2" name="roles" value="WATCH" th:checked="${employee.getRole().contains('WATCH')}" />
+                                                                </div>
+                                                                <div class="checkbox-item">
+                                                                    <label class="form-label" for="role3" th:text="#{employee.role3}">Boss</label>
+                                                                    <input type="checkbox" id="role3" name="roles" value="BOSS" th:checked="${employee.getRole().contains('BOSS')}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <label class="form-label" for="profilePicture" th:text="#{employee.image}">Email</label>
+                                                        <div class="drag-image">
+                                                            <input id="profilePicture" name="profilePicture" accept="image/*" type="file"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.hour_rate}" for="hour_rate">Hour_rate</label>
+                                                        <input class="form-control" type="number" id="hour_rate" name="hour_rate" th:placeholder="${employee.getHourRate()}"
+                                                               step="0.1"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.monthly_hours}" for="monthly_hours">Monthly_hours</label>
+                                                        <input class="form-control" type="number" id="monthly_hours" name="monthly_hours"
+                                                               th:placeholder="${employee.getMonthlyHours()}"/><br/>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" type="submit">Edit Employee</button>
+                                    <a href="/employees" class="btn-cancel">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

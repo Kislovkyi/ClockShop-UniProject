@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Angestellte</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title">My Profile</p>
+
+            <form method="POST" th:action="@{edit_employee}" enctype="multipart/form-data">
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{employee.forename}" for="forename">Forename</label>
+                                                        <input class="form-control" type="text" id="forename" name="forename" th:placeholder="${employee.getForename()}"/>
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{employee.name}" for="name">Surename</label>
+                                                        <input class="form-control" type="text" id="name" name="name" th:placeholder="${employee.getName()}"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.username}" for="username">Username</label>
+                                                        <input class="form-control" type="text" id="username" name="username" th:value="${employee.getUsername()}"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.email}" for="email">Email</label>
+                                                        <input class="form-control" type="email" id="email" name="email" th:placeholder="${employee.getEmail()}"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{employee.address}" for="address">Address</label>
+                                                        <input class="form-control" type="text" id="address" name="address" th:placeholder="${employee.getAddress()}"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="telephone">Telephone Number</label>
+                                                        <input class="form-control" type="text" id="telephone" name="telephone" th:placeholder="${employee.getTelephoneNumber()}"/><br/>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <label class="form-label" for="profilePicture" th:text="#{employee.image}">Email</label>
+                                                        <div class="drag-image">
+                                                            <input id="profilePicture" name="profilePicture" accept="image/*" type="file"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" type="submit">Edit MyProfile</button>
+                                    <a href="/catalog" class="btn-cancel">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

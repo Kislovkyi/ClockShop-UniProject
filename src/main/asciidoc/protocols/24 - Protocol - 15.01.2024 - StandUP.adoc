@@ -1,0 +1,68 @@
+= Protokoll Gruppe 09
+
+Treffen am 15.01.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   09:20 Uhr +
+Ende:     10:00 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:*
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Tim
+- Hu Ann
+- Tobias
+- Illia
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+Wir hatten nicht genug Testabdeckung und sind deshalb durch den Meilenstein gebrettert. ¯\_(ツ)_/¯
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte:
+
+- Feedback-Fragebogen
+- Cross Testing berichte
+- Diagramm noch hinzufügen
+-
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

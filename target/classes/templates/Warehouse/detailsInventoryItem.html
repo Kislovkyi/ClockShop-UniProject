@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="DE">
+
+<head>
+    <title th:text="#{inventory.title}">Inventory</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="accounting-container">
+        <div class="product-layout">
+
+
+
+            <p th:text="${article.getName()}" class="pages-title">ItemName</p>
+
+            <form method="POST" th:action="@{/editItem}" enctype="multipart/form-data">
+
+            <div class="bg-gray-100">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="p-4">
+                                <div class="row gx-5">
+                                    <div class="col-xxl-6">
+                                        <div class="custom-card">
+                                            <div class="row gy-3">
+
+                                                <!-- Name -->
+                                                <div class="col-1-xl-6">
+                                                    <label class="form-label" th:text="#{inventory.name}" for="name">Name</label>
+                                                    <input class="form-control" type="text" id="name" name="name" th:value="${article.getName()}"/>
+                                                </div>
+                                                <!-- Category -->
+                                                <div class="col-1-xl-6">
+                                                    <label class="form-label" th:text="#{inventory.category}">Category</label>
+                                                    <div class="select">
+                                                        <select id="type" name="type">
+                                                            <option th:text="CLOCK" value="CLOCK">Clock</option>
+                                                            <option th:text="MATERIAL" value="MATERIAL">MATERIAL</option>
+                                                            <option th:text="ACCESSORY" value="ACCESSORY">ACCESSORY</option>
+
+                                                        </select>
+                                                        <span class="focus"></span>
+                                                    </div>
+                                                </div>
+                                                <!-- Price -->
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{inventory.price}" for="price">Price</label>
+                                                    <input class="form-control" type="number" id="price" name="price" min="0" step="0.01" th:value="${article.getPrice().getNumber().floatValue()}"/><br/>
+                                                </div>
+                                                <!-- Discount -->
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" for="discount" th:text="#{inventory.discount}">discount</label>
+                                                    <input class="form-control" id="discount" name="discount" type="number" th:placeholder="${article.getDiscount()}" required="required" min="0" step="0.01" max="1"/><br/>
+                                                </div>
+                                                <!-- Quantity -->
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" for="quantity" th:text="#{inventory.amount}">Quantity</label>
+                                                    <input class="form-control" type="number"  id="quantity" name="quantity" th:value="${total}" readonly/><br/>
+                                                </div>
+                                                <!-- Description -->
+                                                <div class="col-xl-12">
+                                                    <label class="form-label" th:text="#{inventory.description}" for="des"
+                                                    >Product Description</label
+                                                    >
+                                                    <textarea th:text="${article.getDescription()}"
+                                                              id="des"
+                                                              name="des"
+                                                              class="form-control"
+                                                              rows="2"
+                                                              style="height: 94px"
+                                                    ></textarea>
+                                                    <label class="form-label text-muted"
+                                                    >*Description should not exceed 500
+                                                        letters</label
+                                                    >
+                                                </div>
+                                                <!-- WarehouseId -->
+                                                <div class="col-xl-62" th:each="locOb : ${locationObjects}">
+
+                                                    <!-- WarehouseId change -->
+                                                    <div class="col-xl-61">
+                                                        <label class="form-label" th:text="${locOb.getWarehouseId()}" for="warehouseId">WarehouseId</label>
+                                                        <input class="form-control" type="text" id="warehouseId" name="warehouseId" th:placeholder="${locOb.getWarehouseId()}"/>
+                                                    </div>
+
+                                                    <!-- WarehouseId quantity -->
+                                                    <div class="col-xl-61">
+                                                        <label class="form-label" th:text="Quantity" for="obQuantity"></label>
+                                                        <input class="form-control" type="text" id="obQuantity" name="obQuantity" th:value="${locOb.getQuantity()}" readonly/>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-4 py-3">
+                                <input type="hidden" name="id" th:value="${article.getId()}"/>
+                                <button class="btn-save" type="submit">Edit Item</button>
+
+                                <a th:href="@{'/moveItems?articleId=' + ${article.getId()}}" class="btn-save">Move Items</a>
+                                <a href="/inventory" class="btn-cancel">Cancel</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

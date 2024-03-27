@@ -1,0 +1,33 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2021/22
+
+**Von:**
+Felix Zenker, 5072824
+**Gruppe:**
+SWT09
+
+== Was habe ich gelernt / was habe ich nicht gelernt?
+gelernt: Programmierkenntnisse,
+organisierte Gruppenarbeit, Umsetzung von Kundenwünschen,
+Frameworks,
+Java
+
+nicht gelernt: häkeln, Fußball
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+Die Zusammenarbeit war spaßig. Alle haben sich gut verstanden. Unterschiedliches Programmierverständnis
+hält die Gruppe nicht auf wenn alle motiviert arbeiten. Trotzdem hängt auch in größeren Gruppen viel von der
+einzelnen Person ab.
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+Frameworks können die Arbeit erheblich vereinfachen. Viele Funktionen sind schonn implementiert.
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+Ich fands gut.
+
+== Feedback für den Tutor
+Sehr unaufgeregt, guter Ansprechpartner. Er hatte immer einen guten Überblick und Themenverständnis. Vielleicht kann man in Zukunft ab und zu mal Feedback geben wie man im Verhältnis zu den anderen Gruppen steht.
+
+== Sonstiges und Anmerkungen
+
+Es war ein gut durchgeplantes und organisiertes Projekt was viele Lernmöglichkeiten geboten hat.
+Allerdings stimmt der tatsächliche Arbeitsaufwand nicht ansatzweise mit dem im Modul angegebenen Aufwand überein.

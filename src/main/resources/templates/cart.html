@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title th:text="#{cart.title}">Cart</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="cart-container">
+
+        <div class="cart-product-layout">
+                <p class="pages-title">Cart</p>
+
+            <div class="cart-bg-gray-100">
+                <div class="cart-row">
+                    <div class="cart-col-xl-12">
+                        <div class="cart-card cart-custom-card">
+                            <div class="cart-card-header">
+                                <div class="cart-card-title">Cart Items</div>
+                            </div>
+                            <div class="cart-card-body">
+                                <div class="cart-row">
+                                    <div class="cart-col-xxl-9">
+                                        <div class="cart-bg-white">
+                                            <table class="cart-table">
+                                                <thead class="cart-bg-gray-50">
+                                                <tr>
+                                                    <th class="cart-px-5" scope="col" th:text="#{cart.t_title}">Product Name</th>
+                                                    <th class="cart-px-5" scope="col" th:text="#{cart.amount}">Quantity</th>
+                                                    <th class="cart-px-5" scope="col" th:text="#{cart.price}">Price</th>
+                                                    <th class="cart-px-5" scope="col" th:text="#{cart.action}">Actions</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody th:remove="all-but-first">
+                                                <tr th:each="item : ${cart}">
+                                                    <td class="cart-py-5" th:text="${item.productName}"></td>
+                                                    <td class="cart-py-5" th:text="${item.quantity}">2</td>
+                                                    <td class="cart-py-5" th:text="${item.price}">$918</td>
+                                                    <td class="cart-py-5">
+                                                        <a class="cart-btn-delete" th:href="'/delete-cartItem?id=' + ${item.getProduct().getId()}">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-col-xxl-4">
+                                        <form class="ui form" method="post" th:action="@{/checkout}">
+                                        <div class="cart-bg-white-dashed">
+                                            <div class="cart-row">
+                                                <div class="cart-col-xl-6-left">
+                                                    <label class="cart-form-label" for="forename" th:text="#{cart.forename}">Forename</label>
+                                                    <input
+                                                            id="forename"
+                                                            name="forename"
+                                                            class="cart-form-control"
+                                                            type="text"
+                                                            placeholder="Forename"
+                                                            required
+                                                    />
+                                                </div>
+                                                <div class="cart-col-xl-6-right">
+                                                    <label class="cart-form-label" for="name" th:text="#{cart.name}">Surename</label>
+                                                    <input
+                                                            id="name"
+                                                            name="name"
+                                                            class="cart-form-control"
+                                                            type="text"
+                                                            placeholder="Surename"
+                                                            required
+                                                    />
+                                                </div>
+                                                <div class="cart-col-xl-6-left">
+                                                    <label class="cart-form-label" for="telephone" th:text="#{cart.telephone}">Phone Number</label>
+                                                    <input
+                                                            id="telephone"
+                                                            name="telephone"
+                                                            class="cart-form-control"
+                                                            type="text"
+                                                            placeholder="Phone Number"
+                                                    />
+                                                </div>
+                                                <div class="cart-col-xl-6-right">
+                                                    <label class="cart-form-label" for="email">Email</label>
+                                                    <input
+                                                            id="email"
+                                                            name="email"
+                                                            class="cart-form-control"
+                                                            type="text"
+                                                            placeholder="Email"
+                                                    />
+                                                </div>
+                                                <div class="cart-col-xl-6-left">
+                                                    <label class="cart-form-label" for="address" th:text="#{cart.address}">Adress</label>
+                                                    <input
+                                                            id="address"
+                                                            name="address"
+                                                            class="cart-form-control"
+                                                            type="text"
+                                                            placeholder="Adress"
+                                                            required
+                                                    />
+                                                </div>
+                                                <div class="cart-col-xl-6-right">
+                                                    <label class="cart-form-label" for="city">City</label>
+                                                    <input
+                                                            id="city"
+                                                            name="city"
+                                                            class="cart-form-control"
+                                                            type="text"
+                                                            placeholder="City"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-bg-white-dashed-not-bending">
+                                            <div class="cart-d-flex cart-align-items-center cart-justify-content-between cart-mb-3">
+                                                <div class="cart-text-muted cart-op-7">Total :</div>
+                                                <div class="cart-fw-medium cart-fs-14 cart-text-primary" th:text="${{cart.price}}"> $1,387</div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-bg-white-dashed-bottom">
+                                            <div class="cart-row">
+                                                <div class="cart-d-grid">
+                                                    <button type="submit" class="cart-btn-save">Checkout</button>
+                                                    <a href="/clear" class="cart-btn-cancel">Clear</a>
+                                                    <a href="/catalog" class="cart-btn-catalog">Back to Catalog</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

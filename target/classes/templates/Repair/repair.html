@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>GFC</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title">Repair</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div th:each="repairType : ${RepairType}" class="card-title">
+                            <span th:text="${repairType.name()} + ': ' + ${repairType.getCost()}"></span>
+                        </div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/repair}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" placeholder="Search Customer">
+                                </form>
+                            </div>
+                            <div class="add">
+                                <div class="view">
+                                    <div class="btn-content">
+                                        <div class="btn-ey">
+                                            <a th:href="@{/addRepair}" class="btn btn-primary btn-sm btn-wave waves-effect waves-light">
+                                                Add Repair
+                                            </a>
+                                        </div>
+                                        <form th:action="@{/repairCostConfigure}" method="post">
+                                            <button class="btn btn-primary btn-sm btn-wave waves-effect waves-light">
+                                                Configure Repair Cost
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{repair.customer}">Customer</th>
+                                <th scope="col" th:text="#{repair.email}">Forename</th>
+                                <th scope="col" th:text="#{repair.start}">Surname</th>
+                                <th scope="col" th:text="#{repair.repairType}">Username</th>
+                                <th scope="col" th:text="#{repair.status}">Username</th>
+                                <th scope="col" th:text="#{repair.total}">Added Materials</th>
+                                <th scope="col" th:text="#{repair.end}">Properties</th>
+                                <th scope="col" th:text="#{repair.action}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+                            <tr th:each="repair, stat : ${repairs}" th:class="${repair.isFinished()} ? 'finished' : (${repair.isRadio()} ? 'radio' : '')">
+                                <td th:text="${repair.getCustomerName()}">uhrenladen@gmail.com</td>
+                                <td th:text="${repair.getEmail()}">0123456789</td>
+                                <td th:text="${repair.getFormattedDateTime(repair.date)}">Boss</td>
+                                <td>
+                                  <span th:class="${repair.getRepairType().name() == 'QUICK' ? 'badge-quick' :
+                                              (repair.getRepairType().name() == 'RADIO' ? 'badge-radio' :
+                                              (repair.getRepairType().name() == 'MAINTENANCE' ? 'badge-maintenance' : 'badge-other'))}"
+                                        th:text="${repair.getRepairType()}"></span>
+                                </td>
+                                <td>
+                                    <div th:if="${repair.isFinished()}" th:text="${repair.getFormattedDateTime(repair.endDate)}" class="badge-outOfStock">
+                                        finished
+                                    </div>
+                                    <div th:unless="${repair.isFinished()}" class="badge-category">
+                                        In progress
+                                    </div>
+                                </td>
+                                <td th:text="${repair.getCostEstimate()} + ' EUR'">TOTAL</td>
+                                <td>
+                                    <form th:action="@{/repair-addMaterials}" method="post">
+                                        <input type="hidden" th:value="${repair.email}" name="des" />
+                                        <input type="hidden" th:value="${repair.getId()}" name="repairId" />
+                                        <button class="btn btn-primary" th:if="${!repair.isFinished()}" type="submit">
+                                            <span th:text="#{repair.finish}"> Finish</span>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <div class="icon-container" th:if="${!repair.isFinished}">
+                                        <a th:href="@{'/editRepair?repairId=' + ${repair.getId()}}"><button class="btn btn-edit-light"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m16.475 5.408l2.117 2.117m-.756-3.982L12.109 9.27a2.118 2.118 0 0 0-.58 1.082L11 13l2.648-.53c.41-.082.786-.283 1.082-.579l5.727-5.727a1.853 1.853 0 1 0-2.621-2.621"/><path d="M19 15v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3"/></g></svg></button></a>
+                                        <a th:href="@{'/deleteRepair?repairId=' + ${repair.getId()}}"><button class="btn btn-delete-light"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/></svg></button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/repair?page=' + ${page - 1 }"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/repair?page=' + ${page + 1}"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

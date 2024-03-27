@@ -1,0 +1,74 @@
+= Protokoll Gruppe 09
+
+Treffen am 30.10.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   9:20 Uhr +
+Ende:     10:10 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+01.11.2023, 20:00 Uhr, online
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Illia
+- Tim
+- Hu Ann
+- Tobias
+- Darius - Schriftführer
+
+- Titus - Tutor/Kunde
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+### StandUP-Meeting mit dem Tutor/Kunden
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte :
+
+- Vergleich der Videoshop-Aufgaben (keine Einwände)
+
+- Feedback Pflichtenheft ausstehend
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |2er Gruppen bilden |Pair-programming  |jeder |offen - (Deadline 01.11.2023)
+|... |eventuelle Revision Pflichtenheft |Falls Mängel bestehen  |jeder |offen
+|... |Prototypen der einzelnen Programmbestandteile |Aufteilung ausstehend|jeder |offen
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

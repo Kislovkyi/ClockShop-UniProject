@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Accountancy</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+    <script type="text/javascript"
+            src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="page-header">
+            <h2 class="page-title" th:text="#{accounting.title}">Bankaccount</h2>
+            <div class="btn-list">
+                <a href="/time-management?time=3600"><button class="btn-time btn-primary-light" th:text="#{time.hour}">+60 Min</button></a>
+                <a href="/time-management?time=86400"><button class="btn-time btn-primary-light" th:text="#{time.day}">+1 Day</button></a>
+                <a href="/time-management?time=2592000" ><button class="btn-time btn-primary-light" th:text="#{time.month}">+30 Days</button></a>
+                <a href="/time-management?time=31536000"><button class="btn-time btn-primary-light" th:text="#{time.year}">+1 Year</button></a>
+            </div>
+        </div>
+        <div class="accounting-rows">
+            <div class="cols-xl-3">
+                <div class="cards customs-card">
+                    <div class="cards-body">
+                        <div class="card-icon-sales">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 512 512"
+                            >
+                                <rect
+                                        width="448"
+                                        height="256"
+                                        x="32"
+                                        y="80"
+                                        fill="none"
+                                        stroke="#2ecc71"
+                                        stroke-linejoin="round"
+                                        stroke-width="32"
+                                        rx="16"
+                                        ry="16"
+                                        transform="rotate(180 256 208)"
+                                />
+                                <path
+                                        fill="none"
+                                        stroke="#2ecc71"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="32"
+                                        d="M64 384h384M96 432h320"
+                                />
+                                <circle
+                                        cx="256"
+                                        cy="208"
+                                        r="80"
+                                        fill="none"
+                                        stroke="#2ecc71"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="32"
+                                />
+                                <path
+                                        fill="none"
+                                        stroke="#2ecc71"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="32"
+                                        d="M480 160a80 80 0 0 1-80-80M32 160a80 80 0 0 0 80-80m368 176a80 80 0 0 0-80 80M32 256a80 80 0 0 1 80 80"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <h6 class="card-header">
+                                <span th:text="#{accounting.total_profit}" class="fs-15">Total Profit</span>
+                                <p class="card-number fs-green" th:text="${totalProfit}"></p>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cols-xl-3">
+                <div class="cards customs-card">
+                    <div class="cards-body">
+                        <div class="card-icon-expenses">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                            >
+                                <path
+                                        fill="#3498db"
+                                        d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1m-1-2V4H5v16zM8 9h8v2H8zm0 4h8v2H8z"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <h6 class="card-header">
+                                <span th:text="#{accounting.total_expense}" class="fs-15">Total Expenses</span>
+                                <p class="card-number fs-red" th:text="${totalExpense}"></p>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cols-xl-3">
+                <div class="cards customs-card">
+                    <div class="cards-body">
+                        <div class="card-icon-order">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                            >
+                                <path
+                                        fill="#ea580c"
+                                        d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <h6 class="card-header">
+                                <span th:text="#{accounting.total_order}" class="fs-15">Total Order</span>
+                                <p class="card-number" th:text="${completedOrdersCount} != null ? ${completedOrdersCount} : '0'">0</p>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cols-xl-3">
+                <div class="cards customs-card">
+                    <div class="cards-body">
+                        <div class="card-icon-repairs">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 2048 2048"
+                            >
+                                <path
+                                        fill="#0d9488"
+                                        d="M1930 220q26 45 47 86t38 83t24 87t9 100q0 79-20 152t-58 138t-91 117t-117 90t-137 58t-153 21q-23 0-46-2t-47-6l-806 806q-48 48-109 73t-129 25q-69 0-130-26t-106-72t-72-107t-27-130q0-67 25-128t73-110l806-806q-4-23-6-46t-2-47q0-79 20-152t58-138t91-117t117-90t137-58t153-21q54 0 99 8t88 25t83 37t86 48l-394 394l102 102zm-458 804q93 0 174-35t142-96t96-142t36-175q0-73-24-141l-360 359l-282-282l359-360q-68-24-141-24q-93 0-174 35t-142 96t-96 142t-36 175q0 35 6 68t14 66l-855 856q-29 29-45 67t-16 80q0 42 16 80t45 66t66 44t80 17q42 0 80-16t67-45l856-855q33 8 66 14t68 6"
+                                />
+                            </svg>
+                        </div>
+                        <div>
+                            <h6 class="card-header">
+                                <span th:text="#{accounting.total_repairs}" class="fs-15">Total Repairs</span>
+                                <p class="card-number" th:text="${repairsCount} != null ? ${repairsCount} : '0'">0</p>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accounting-rows">
+            <div class="col-lg-12 cols-xxl-6">
+                <div class="cards customs-card">
+                    <div class="cards-header1">
+                        <div class="cards-title" th:text="#{accounting.year_graph}">Year Graph</div>
+                    </div>
+                    <div class="cards-body">
+                        <div class="earning-reports" style="min-height: 333px">
+                            <div
+                                    id="chart_div"
+                                    class="chart"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cols-xxl-3">
+                <div class="cards customs-card">
+                    <div class="cards-header1">
+                        <div class="cards-title" th:text="#{accounting.pie_chart}">AllTime Pie-Chart</div>
+                    </div>
+                    <div class="cards-body">
+                        <div
+                                id="piechart"
+                                class="pie_chart"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accounting-rows">
+            <div class="cols-xxl-8">
+                <div class="cards customs-card overflow-hidden">
+                    <div class="cards-header1 justify-content-between">
+                        <div class="cards-title" th:text="#{accounting.recent_orders}">Recent Orders</div>
+                        <div class="view">
+                            <a class="link-primary" href="accountingAllOrder">
+                                <div class="btn-content">
+                                    <span th:text="#{accounting.view_all_order}"></span>
+                                    <div class="btn-stroke">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 1024 1024"><path fill="none" stroke="#b94eed" stroke-width="80" d="M271.653 1023.192c-8.685 0-17.573-3.432-24.238-10.097c-13.33-13.33-13.33-35.144 0-48.474L703.67 508.163L254.08 58.573c-13.33-13.331-13.33-35.145 0-48.475c13.33-13.33 35.143-13.33 48.473 0L776.38 483.925c13.33 13.33 13.33 35.143 0 48.473l-480.492 480.694c-6.665 6.665-15.551 10.099-24.236 10.099z"/></svg>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pt-2 pb-0">
+                        <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{accounting.order_id}">Order ID</th>
+                                <th scope="col" th:text="#{accounting.date}">Date</th>
+                                <th scope="col" th:text="#{accounting.customer_email}">Customer E-mail</th>
+                                <th scope="col" th:text="#{accounting.amount_paid}">Amount Paid</th>
+                                <th scope="col" th:text="#{accounting.action}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+
+                            <tr th:each=" orderEntry : ${RecentOrders}" th:if="${orderManagement.getOrder(orderEntry.getOrderIdentifier()).getChargeLines().toList().size() == 1 && !orderManagement.getOrder(orderEntry.getOrderIdentifier()).getChargeLines().toList().get(0).description.equals('BUY')}">
+
+                                <td th:text="${orderEntry.getId()}"></td>
+                                <td th:text="${orderEntry.getDate().get().getDayOfMonth() + '.' + orderEntry.getDate().get().getMonthValue() + '.' + orderEntry.getDate().get().getYear() + ' ' + orderEntry.getDate().get().getHour() + ':' + orderEntry.getDate().get().getMinute() + ':' + orderEntry.getDate().get().getSecond()}">13.01.2024</td>
+                                <td th:text="${orderManagement.getOrder(orderEntry.getOrderIdentifier()).getEmail()}"></td>
+                                <td th:text="${orderEntry.getValue()}"></td>
+                                <td>
+                                    <div class="view">
+                                        <a th:href="'/accounting-id' + '?id=' + ${orderEntry.getId()}"  >
+                                        <button
+                                                 class="btn btn-sm btn-outline-light btn-wave waves-effect waves-light" type="submit">
+
+                                            <div class="btn-content">
+                                                <div class="btn-eyes">
+                                                    <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="14"
+                                                            height="14"
+                                                            viewBox="0 0 256 256"
+                                                    >
+                                                        <path
+                                                                fill="#6c757e"
+                                                                d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5M128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64m0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48m0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                <span>View</span>
+                                            </div>
+                                        </button>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cols-xxl-7">
+                <div class="cards customs-card">
+                    <div class="cards-header1">
+                        <div class="cards-title" th:text="#{accounting.best_selling_items}">Best Selling Items</div>
+                    </div>
+                    <table class="table table-bottom">
+                        <thead>
+
+                        </thead>
+
+                        <tbody th:remove="all-but-first">
+
+                        <tr th:each=" item : ${mostSells}">
+                            <td th:text="${item.getArticle().getName()}" >Name</td>
+                            <td th:each="category : ${item.getArticle().getCategories().toList()}" th:text="${category}">Categorie</td>
+                            <td th:text="${item.number}">Number</td>
+
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="accounting-rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/maintenance}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" th:placeholder="#{accounting.search_username}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{accounting.invoice_id}">Invoice ID</th>
+                                <th scope="col" th:text="#{accounting.date}">Date</th>
+                                <th scope="col" th:text="#{accounting.value}">Value</th>
+                                <th scope="col" th:text="#{accounting.status}">Status</th>
+                                <th scope="col" th:text="#{accounting.action}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+                            <tr th:each=" entry : ${protocol}">
+                                    <td th:text="${entry.getDescription()}"><span>#0d9488</span></td>
+                                    <td th:text="${entry.getDate().get().getDayOfMonth() + '.' + entry.getDate().get().getMonthValue() + '.' + entry.getDate().get().getYear() + ' ' + entry.getDate().get().getHour() + ':' + entry.getDate().get().getMinute() + ':' + entry.getDate().get().getSecond()}">13.01.2024</td>
+                                    <td th:text="${entry.getValue()}">20000</td>
+                                    <td><span th:class="${entry.isRevenue()} ? 'badge-revenue' : (${entry.isExpense()} ? 'badge-expense')" th:text="${entry.isRevenue()} ? 'Revenue' : (${entry.isExpense()} ? 'Expense')">Revenue</span></td>
+                                    <td>
+                                        <div class="view">
+                                            <a th:href="'/accounting-id' + '?id=' + ${entry.getId()}"  >
+                                            <button
+                                                    class="btn btn-sm btn-outline-light btn-wave waves-effect waves-light" type="submit">
+                                                <div class="btn-content">
+                                                    <div class="btn-eyes">
+                                                        <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                width="14"
+                                                                height="14"
+                                                                viewBox="0 0 256 256">
+                                                            <path
+                                                                    fill="#6c757e"
+                                                                    d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5M128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64m0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48m0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32"/>
+                                                        </svg>
+                                                    </div>
+                                                    <span>View</span>
+                                                </div>
+                                            </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center" id="pagination">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/accounting?page=' + ${page - 1 } + '#pagination'"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/accounting?page=' + ${page + 1} + '#pagination'"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        var real_data = /*[[${chartData}]]*/'noValue';
+        var pie_data = /*[[${pieChartData}]]*/'noValue';
+        $(document).ready(function() {
+            google.charts.load('current', {
+                packages : [ 'corechart', 'bar' ]
+            });
+            google.charts.setOnLoadCallback(drawColumnChart);
+            google.charts.setOnLoadCallback(drawPieChart);
+        });
+        function drawColumnChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Sales');
+            Object.keys(real_data).forEach(function(key) {
+                data.addRow([ key, real_data[key] ]);
+            });
+            var options = {
+                vAxis : {
+                    format: '$#,###'
+                },
+                legend: 'none',
+                backgroundColor: "transparent",
+            };
+            var chart = new google.visualization.ColumnChart(document
+                    .getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        function drawPieChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Views');
+            Object.keys(pie_data).forEach(function(key) {
+                data.addRow([ key, pie_data[key] ]);
+            });
+            var options = {
+                backgroundColor: "transparent",
+            };
+            var chart = new google.visualization.PieChart(document
+                    .getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+= Protokoll Gruppe 09
+
+Treffen am 05.11.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   09:20 Uhr +
+Ende:     10:05 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+08.11.2023, 13:00 Uhr, APB| Sitzgruppe
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master - Schriftführer
+- Steve
+- Tim
+- Hu Ann
+- Tobias
+- Illia
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Krankheitsbedingt konnte Darius leider nicht am Meeting teilnehmen
+
+=== Standup-Meeting mit dem Tutor
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|5|can't link css stylesheet in template login.html|In the "Personalmanagement" branch, the link between the login.html and the style.css file does not work. It appears that the coherent stylesheet is not to be found or either there are permission that are needed to be set correctly.|Darius| verschoben - erstmal unwichtig
+|6|Usecase Login| Login bereits im Framework enthalten? Wie Sequenzdiagramm? ( evtl. nicht nötig? )|Huu An| erledigt
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte:
+
+- Vergleich der bisherigen Aufgaben mit dem Tutor
+
+### - Ankündigung Präsentation:
+
+3 Teile:
+
+- Folienpräsentation (entwurfsmodelle, designentscheidungen, probleme benennen)anwendungsprototypen präsentieren (in einem branch) uml
+
+- Anwendungsszenarien zeigen und besprechen, ersten funktionierenden code zeigen, datainitializer, dummidaten
+
+- Diskussion mit Tutor, Lehrstuhl anwesend
+
+Ab jetzt alle Diagramme Englisch
+
+
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |Prototyp: Verkauf |Erstellung eines funktionalen Prototyps des Verkaufs-Apparats des Uhrenladens   |Tobias, Hu Ann |offen
+|... |Prototyp: Reparatur |Erstellung eines funktionalen Prototyps des Reparatur-Apparats |Felix, Illia |offen
+|... |Prototyp: Personalmanagement |Erstellung eines funktionalen Prototypes des Personal-Apparats |Steve, Darius |offen
+|... |Prototyp: Lager |Erstellung eines funktionalen Prototypes des Lager-Systems  |Tim |offen
+|... |Merge der Prototypen |Zusammenführung der einzelnen funktionalen Prototypen in ein Grundgerüst |Alle |offen
+|... |Entwicklerdokumentation |Entwicklerdokumentation aktuell halten |Alle |in Arbeit
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

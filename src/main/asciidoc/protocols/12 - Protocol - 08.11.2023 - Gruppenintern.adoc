@@ -1,0 +1,81 @@
+= Protokoll Gruppe 09
+
+Treffen am 08.11.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   13:00 Uhr +
+Ende:     15:00 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+11.11.2023, 20:00 Uhr, online
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Tim
+- Hu Ann
+- Tobias
+- Illia
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |Prototyp: Verkauf |Erstellung eines funktionalen Prototyps des Verkaufs-Apparats des Uhrenladens   |Tobias, Hu Ann |offen
+|... |Prototyp: Reparatur |Erstellung eines funktionalen Prototyps des Reparatur-Apparats |Felix, Illia |offen
+|... |Prototyp: Personalmanagement |Erstellung eines funktionalen Prototypes des Personal-Apparats |Steve, Darius |offen
+|... |Prototyp: Lager |Erstellung eines funktionalen Prototypes des Lager-Systems  |Tim |offen
+|... |Merge der Prototypen |Zusammenführung der einzelnen funktionalen Prototypen in ein Grundgerüst |Alle |offen
+|... |Entwicklerdokumentation |Entwicklerdokumentation aktuell halten |Alle |in Arbeit
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte:
+
+- Arbeit mit dem Partner
+
+- Besprechung von Anliegen bzgl. der Entwicklerdokumentation
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |Prototyp: Verkauf |Erstellung eines funktionalen Prototyps des Verkaufs-Apparats des Uhrenladens   |Tobias, Hu Ann |offen
+|... |Prototyp: Reparatur |Erstellung eines funktionalen Prototyps des Reparatur-Apparats |Felix, Illia |offen
+|... |Prototyp: Personalmanagement |Erstellung eines funktionalen Prototypes des Personal-Apparats |Steve, Darius |offen
+|... |Prototyp: Lager |Erstellung eines funktionalen Prototypes des Lager-Systems  |Tim |offen
+|... |Merge der Prototypen |Zusammenführung der einzelnen funktionalen Prototypen in ein Grundgerüst |Alle |offen
+|... |Entwicklerdokumentation |Entwicklerdokumentation aktuell halten |Alle |in Arbeit
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

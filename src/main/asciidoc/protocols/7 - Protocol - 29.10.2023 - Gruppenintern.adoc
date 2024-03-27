@@ -1,0 +1,71 @@
+= Protokoll Gruppe 09
+
+Treffen am 29.10.2023
+
+Ort:      Online +
+Beginn:   20:00 Uhr +
+Ende:     21:30 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+30.10.2023, 9:20 Uhr, APB-Sitzgruppe
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Illia
+- Tim
+- Hu Ann
+- Tobias
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|…     |Zusammenbau des Pflichtenhefts|... |Alle     |erledigt
+
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte :
+
+Zusammenbau des Pflichtenhefts...
+Revision einzelner Bestandteile
+
+Abschluss des Pflichtenhefts...
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+[small]_Note: Bisher keine Issues auf Github._
+

@@ -1,0 +1,71 @@
+= Protokoll Gruppe 09
+
+Treffen am 12.11.2023
+
+Ort:      online +
+Beginn:   20:00 Uhr +
+Ende:     21:30 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+13.11.2023, 09:20 Uhr, APB| Sitzgruppe
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Tim
+- Hu Ann
+- Tobias
+- Illia
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |Merge der Prototypen |Zusammenführung der einzelnen funktionalen Prototypen in ein Grundgerüst |Alle |offen
+|... |Entwicklerdokumentation |Entwicklerdokumentation aktuell halten |Alle |in Arbeit
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte:
+
+Abschluss der Arbeiten am Prototyp und der Entwicklerdokumentation.
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |Merge der Prototypen |Zusammenführung der einzelnen funktionalen Prototypen in ein Grundgerüst |Alle |fertig
+|... |Entwicklerdokumentation |Entwicklerdokumentation aktuell halten |Alle |fertig
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

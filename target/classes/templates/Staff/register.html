@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Registration</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+    <div class="product-layout">
+            <p class="pages-title">Add Employee</p>
+
+        <!--/*@thymesVar id="registrationForm" */-->
+        <form method="post" enctype="multipart/form-data" role="form" class="ui form" id="form" th:action="@{/register}"  th:object="${registrationForm}">
+
+            <div class="bg-gray-100">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="p-4">
+                                <div class="row gx-5">
+                                    <div class="col-xxl-6">
+                                        <div class="custom-card">
+                                            <div class="row gy-3">
+                                                <div class="col-1-xl-6">
+                                                    <label class="form-label" th:text="#{employee.forename}" for="forename">Forename</label>
+                                                    <input class="form-control" value="Tim" id="forename" name="forename" th:errorclass="fieldError" type="text" required="required"/>
+                                                    <!-- Error message for forename field -->
+                                                    <p th:if="${#fields.hasErrors('forename')}">Forename cannot be empty.</p>
+                                                </div>
+                                                <div class="col-1-xl-6">
+                                                    <label class="form-label" th:text="#{employee.name}" for="name">Surename</label>
+                                                    <input class="form-control" id="name" name="name" th:errorclass="fieldError" type="text" value="Tintin" required="required"/>
+                                                    <!-- Error message for forename field -->
+                                                    <p th:if="${#fields.hasErrors('name')}">Surename cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{employee.username}" for="username">Username</label>
+                                                    <input class="form-control" id="username" name="username" th:errorclass="fieldError" type="text" value="TimOhneStruppi" required="required"/><br/>
+                                                    <!-- Error message for forename field -->
+                                                    <p th:if="${#fields.hasErrors('username')}" >Username cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{employee.email}" for="email">Email</label>
+                                                    <input class="form-control" id="email" name="email" th:errorclass="fieldError" type="text" value="TimOhneStruppi@gmail.com" required="required"/><br/>
+                                                    <!-- Error message for forename field -->
+                                                    <p th:if="${#fields.hasErrors('email')}" >Email cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{employee.address}" for="address">Address</label>
+                                                    <input class="form-control" id="address" name="address"  th:errorclass="fieldError" type="text" value="Labradorstraße Nr. 26, erster Stock" required="required"/><br/>
+                                                    <!-- Error message for address field -->
+                                                    <p th:if="${#fields.hasErrors('address')}" >Address cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{employee.telephoneNumber}" for="telephoneNumber">Address</label>
+                                                    <input class="form-control" id="telephoneNumber" name="telephoneNumber"  th:errorclass="fieldError" type="text" value="0163 25193415" required="required"/><br/>
+                                                    <!-- Error message for address field -->
+                                                    <p th:if="${#fields.hasErrors('address')}" >Address cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="checkbox-group">
+                                                        <label class="form-label">Roles</label>
+                                                        <div class="checkbox-row">
+                                                            <div class="checkbox-item">
+                                                                <label
+                                                                        class="form-label"
+                                                                        for="role1"
+                                                                        th:text="#{employee.role1}"
+                                                                >Sales</label
+                                                                >
+                                                                <input
+                                                                        type="checkbox"
+                                                                        id="role1"
+                                                                        name="roles"
+                                                                        value="SALE"
+                                                                />
+                                                            </div>
+                                                            <div class="checkbox-item">
+                                                                <label
+                                                                        class="form-label"
+                                                                        for="role2"
+                                                                        th:text="#{employee.role2}"
+                                                                >Watcher</label
+                                                                >
+                                                                <input
+                                                                        type="checkbox"
+                                                                        id="role2"
+                                                                        name="roles"
+                                                                        value="WATCH"
+                                                                />
+                                                            </div>
+                                                            <div class="checkbox-item">
+                                                                <label
+                                                                        class="form-label"
+                                                                        for="role3"
+                                                                        th:text="#{employee.role3}"
+                                                                >Boss</label
+                                                                >
+                                                                <input
+                                                                        type="checkbox"
+                                                                        id="role3"
+                                                                        name="roles"
+                                                                        value="BOSS"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-1-xl-12">
+                                                    <label class="form-label" th:text="#{employee.image}" for="image">Email</label>
+                                                    <div class="drag-image">
+                                                        <input id="image" name="image" accept="image/*" th:errorclass="fieldError" type="file" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{employee.hour_rate}" for="hourRate">Hour_rate</label>
+                                                    <input class="form-control" id="hourRate" name="hourRate" th:errorclass="fieldError" type="number" value="12"
+                                                           required="required"/><br/>
+                                                    <!-- Error message for address field -->
+                                                    <p th:if="${#fields.hasErrors('hourRate')}" >Hour_rate cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{employee.monthly_hours}" for="monthlyHours">Monthly_hours</label>
+                                                    <input class="form-control" id="monthlyHours" name="monthlyHours" th:errorclass="fieldError" type="number" value="20"
+                                                           required="required"/><br/>
+                                                    <!-- Error message for address field -->
+                                                    <p th:if="${#fields.hasErrors('monthlyHours')}" >Monthly_hours cannot be empty.</p>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label class="form-label" th:text="#{register.password}" for="password">Password</label>
+                                                    <input class="form-control" id="password" name="password" th:errorclass="fieldError" type="password" value="123"
+                                                           required="required"/><br/>
+                                                    <!-- Error message for password field -->
+                                                    <p th:if="${#fields.hasErrors('password')}" >Password cannot be empty.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-4 py-3">
+                                <button class="btn-save" type="submit">Add Employee</button>
+                                <a href="/employees" class="btn-cancel" th:text="#{gfc.cancel}">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    </div>
+</section>
+</body>
+</html>
+

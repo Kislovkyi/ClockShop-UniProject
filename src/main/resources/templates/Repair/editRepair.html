@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Repair Cost Configuration</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title">Configure Repair Cost</p>
+
+            <form method="POST" th:action="@{finishConfiguration}" enctype="multipart/form-data">
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{repair.customerName}" for="customerName"></label>
+                                                        <input class="form-control" type="text" id= "customerName" name="customerName" th:placeholder="${repair.getCustomerName()}"/>
+                                                        <input type="hidden" th:value="${repair.getId()}" name="repairId" />
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{repair.email}" for="email"></label>
+                                                        <input class="form-control" type="email" id="email" name="email" th:placeholder="${repair.getEmail}"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{repair.type}"></label>
+                                                        <div class="select">
+                                                            <select id="repairType" name="repairType">
+                                                                <option th:text="#{repair.quick}" value="QUICK"
+                                                                        th:selected="${repair.getRepairType().name() == 'QUICK'}">
+                                                                </option>
+                                                                <option th:text="#{repair.normal}" value="NORMAL"
+                                                                        th:selected="${repair.getRepairType().name() == 'NORMAL'}"></option>
+                                                                <option th:text="#{repair.radio}" value="RADIO"
+                                                                        th:selected="${repair.getRepairType().name() == 'RADIO'}">
+                                                                </option>
+                                                                <option th:text="#{repair.maintenance}" value="MAINTENANCE"
+                                                                        th:selected="${repair.getRepairType().name() == 'MAINTENANCE'}"></option>
+                                                            </select>
+                                                            <span class="focus"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" th:text="#{repair.costEstimate}" for="costEstimate"></label>
+                                                        <input class="form-control" type="number" id="costEstimate" name="costEstimate" th:value="${repair.getCostEstimate()}" min="0" max="100000"/>
+                                                    </div>
+                                                    <div class="col-xl-12">
+                                                        <label class="form-label" th:text="#{repair.description}" for="description"></label>
+                                                        <textarea class="form-control" id="description" name="description" th:placeholder="${repair.getDescription()}"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" type="submit" th:text="#{repair.editRepair}"></button>
+                                    <a href="/repair" class="btn-cancel" th:text="#{repair.cancel}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Registration</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="accounting-container">
+        <div class="product-layout">
+                <p class="pages-title" th:text="#{gfc.name}">Add Companies</h>
+
+            <form method="post" role="form" class="ui form" id="form"
+                  th:action="@{/addcompanies-add}">
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{gfc.companyName}"
+                                                               for="companyName">title</label>
+                                                        <input class="form-control" id="companyName"
+                                                               name="companyName" type="text"
+                                                               required="required"/>
+                                                    </div>
+                                                    <div class="col-1-xl-6">
+                                                        <label class="form-label" th:text="#{gfc.address}" for="address">Price</label>
+                                                        <input class="form-control" id="address" name="address"
+                                                               type="text" required="required"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-3">
+                                    <button class="btn-save" th:text="#{gfc.add}">Add Employee</button>
+                                    <a href="/addGFC" class="btn-cancel" th:text="#{gfc.cancel}">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>
+

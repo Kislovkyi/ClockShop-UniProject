@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title th:text="#{catalog.title}">Katalog</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title" th:text="#{accounting.view_all_order}">View All Orders</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/accountingAllOrder}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" th:placeholder="#{accounting.search_product}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{accounting.order_id}">Order Id</th>
+                                <th scope="col" th:text="#{accounting.date}">Date</th>
+                                <th scope="col" th:text="#{accounting.customer_email}">Customer Email</th>
+                                <th scope="col" th:text="#{accounting.amount_paid}">Amount Paid</th>
+                                <th scope="col" th:text="#{accounting.action}">Action</th>
+                            </tr>
+                            </thead>
+
+                            <tbody th:remove="all-but-first">
+                            <tr th:each="orderEntry : ${AllOrder}" th:if="${orderEntry.getOrderIdentifier() != null && orderManagement.getOrder(orderEntry.getOrderIdentifier()).getChargeLines().toList().size() == 1 && !orderManagement.getOrder(orderEntry.getOrderIdentifier()).getChargeLines().toList().get(0).description.equals('BUY')}">
+                                <td th:text="${orderEntry.getId()}"></td>
+                                <td th:text="${orderEntry.getDate().get().getDayOfMonth() + '.' + orderEntry.getDate().get().getMonthValue() + '.' + orderEntry.getDate().get().getYear() + ' ' + orderEntry.getDate().get().getHour() + ':' + orderEntry.getDate().get().getMinute() + ':' + orderEntry.getDate().get().getSecond()}">13.01.2024</td>
+                                <td th:text="${orderManagement.getOrder(orderEntry.getOrderIdentifier()).getEmail()}"></td>
+                                <td th:text="${orderEntry.getValue()}"></td>
+                                <td>
+                                    <div class="view">
+                                        <a th:href="'/accounting-id' + '?id=' + ${orderEntry.getId()}"  >
+                                            <button
+                                                    class="btn btn-sm btn-outline-light btn-wave waves-effect waves-light" type="submit">
+
+                                                <div class="btn-content">
+                                                    <div class="btn-eyes">
+                                                        <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                width="14"
+                                                                height="14"
+                                                                viewBox="0 0 256 256"
+                                                        >
+                                                            <path
+                                                                    fill="#6c757e"
+                                                                    d="M247.31 124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57 61.26 162.88 48 128 48S61.43 61.26 36.34 86.35C17.51 105.18 9 124 8.69 124.76a8 8 0 0 0 0 6.5c.35.79 8.82 19.57 27.65 38.4C61.43 194.74 93.12 208 128 208s66.57-13.26 91.66-38.34c18.83-18.83 27.3-37.61 27.65-38.4a8 8 0 0 0 0-6.5M128 192c-30.78 0-57.67-11.19-79.93-33.25A133.47 133.47 0 0 1 25 128a133.33 133.33 0 0 1 23.07-30.75C70.33 75.19 97.22 64 128 64s57.67 11.19 79.93 33.25A133.46 133.46 0 0 1 231.05 128c-7.21 13.46-38.62 64-103.05 64m0-112a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48m0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32"
+                                                            />
+                                                        </svg>
+                                                    </div>
+                                                    <span>View</span>
+                                                </div>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/accountingAllOrder?page=' + ${page - 1 }"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{pagination.prev}"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/accountingAllOrder?page=' + ${page + 1}"
+                                       class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{pagination.next}"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

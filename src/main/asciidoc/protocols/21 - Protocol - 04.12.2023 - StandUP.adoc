@@ -1,0 +1,106 @@
+= Protokoll Gruppe 09
+
+Treffen am 04.12.2023
+
+Ort:      APB| Sitzgruppe +
+Beginn:   09:20 Uhr +
+Ende:     10:05 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+27.11.2023, 09:20 Uhr, APB| Sitzgruppe
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Tim
+- Hu Ann
+- Tobias
+- Illia
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+Wir hatten nicht genug Testabdeckung und sind deshalb durch den Meilenstein gebrettert. ¯\_(ツ)_/¯
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|16 |Search Function |implement the search-function from videoshop-aufgabe into catalog ... ! Not a core functionality, not important! |Tim |finished
+|28 |Display Employee Role|Display employee role in myaccount screen |Darius, Steve |finished
+|33 |Employee more than one Role |Employees should be able to hold more than one role|Darius, Steve|finished
+|35 |More custom orders |NormalOrder --> normal Order goes through cart and takes Inventory Items automatically.
+RepairComplete-Order --> takes Item defined in Repair and adds work time
+SortoutItem-Order --> deletes Items from inventory, doesn't change the money
+(ItemBuy-Order) --> adds item to inventory subtracts money
+(Paysalary-Order) --> creates expense accountancy entry |Tim |closed as not planned
+|36 |Order Cancel Button in Accountancy |Add button to accountancy that cancels the given order for a Reason (maybe from a text box). |Tim |finished
+|37 |Create new items in inventory |Add from in Inventory to create a new item.|Tim |finished
+|38 |Password recovery |User should be able to request a password reset in the login-screen. An admin can then reset or change the password of the user.|Darius, Steve|in Arbeit
+|39 |Add profile picture |Every account should have the possibility to add a profile picture that is displayed on their home site and in the employee tab. |Darius, Steve |in Arbeit
+|44 |The great Repository |When we take our website down, the data should be contained and when we load our website again, then the data is shown and we don't need to add the data again. |Everybody |in Arbeit
+|45 |Inventory edit |If the submit button is pressed it always takes the information of the first inventory item ...
+
+if an item is sorted out the accountancy displays positive money, but it should be 0. |Tim |finished
+|48|Reverse Accountancy displayed order |Right now, the accountancy does display the first ever entry on top, but it should display the latest entry. (because it's more important)
+The order of display needs to be changed.|Tim |in Arbeit
+|47 |Order causes crash if item = 0 |If an Item in the inventory is at 0 and gets ordered, the site crashes. |Tobias, Ann|finished
+|46 |Constantly update developer documentation |Constantly update developer documentation |Everybody |in Arbeit
+|43 |The great javadoc-ining |Write javadocs for all important classes. |Everybody |finished
+|42 |Add Grandfather clocks to catalog |Grandfather clocks are clock that are not part of the inventory but can be purchased in the shop. The clocks are purchased on demand. |Tobias, Ann |finished
+|41 |Maintenance Services |Basic prototype of Maintenance service|Tobias, Ann |finished
+|40 |Add items to repair |Feature that adds items to repair, so that when the repair gets completed, an order is created that takes the used items out of the inventory.
+! does not include the part with the order! |Illia, Felix |finished
+|34 |Working with Time |Everything is using Business-Time to get their time values.
+
+Paysalary should be executed once a month and should create an Accountancy-Entry for every Person registered in the clockshop.|finished
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte:
+
+Tests nachschreiben!!! Mi 23:59 auf 60% Tests kommen
+
+Controller (so spät wie möglich, wenn keine 60%) Shop Beispiel Videoshop: Repository nicht testen, keine Businesslogik in Controller
+
+Finale Abgabe: Identifizierung Ladenhüter
+
+Shopinventory umbenennen
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+
++There needs to be a button or a form to shift time forwards... |Everybody |in Arbeit
+|25 |Create .pdf in specific scenarios |Create .pdf in specific scenarios|Everybody |in Arbeit
+|17 |Tests|Writing Tests for edge cases|Everybody |in Arbeit
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+

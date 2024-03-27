@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>Repair Cost Configuration</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container">
+        <div class="product-layout">
+                <p class="pages-title">Configure Repair Cost</p>
+
+            <form method="POST" th:action="@{finishConfiguration}" enctype="multipart/form-data">
+
+                <div class="bg-gray-100">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="p-4">
+                                    <div class="row gx-5">
+                                        <div class="col-xxl-6">
+                                            <div class="custom-card">
+                                                <div class="row gy-3">
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="quickRepair">Quick Repair Cost</label>
+                                                        <input class="form-control" type="number" id="quickRepair" name="quickRepair" th:value="${RepairType[0].getCost()}" min="0" max="100000"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="normalRepair">Normal Repair Cost</label>
+                                                        <input class="form-control" type="number" id="normalRepair" name="normalRepair" th:value="${RepairType[1].getCost()}" min="0" max="100000"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="maintenanceRepair">Maintenance Repair Cost</label>
+                                                        <input class="form-control" type="number" id="maintenanceRepair" name="maintenanceRepair" th:value="${RepairType[2].getCost()}" min="0" max="100000"/>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <label class="form-label" for="radioRepair">Radio Repair Cost</label>
+                                                        <input class="form-control" type="number" id="radioRepair" name="radioRepair" th:value="${RepairType[3].getCost()}" min="0" max="100000"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="px-4 py-3">
+                                        <button class="btn-save" type="submit">Save Configuration</button>
+                                        <a href="/repair" class="btn-cancel">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

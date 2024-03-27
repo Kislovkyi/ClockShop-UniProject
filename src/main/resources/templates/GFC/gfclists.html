@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="">
+<head>
+    <title>GFC</title>
+    <link href="/resources/css/style.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div class="container">
+        <p class="page-title">GFC</p>
+        <div class="rows">
+            <div class="col-xxl-10">
+                <div class="cards custom-card">
+                    <div class="card-header1 justify-content-between">
+                        <div class="card-title"></div>
+                        <div class="d-sm-flex">
+                            <div class="me-3 mb-3 mb-sm-0">
+                                <form th:action="@{/gfclists}" method="get">
+                                    <input class="forms-control forms-control-sm" type="text" name="searchTerm" placeholder="GFC Name">
+                                </form>
+                            </div>
+                            <div class="add">
+                                <a th:href="@{/addGFC}"
+                                   class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{gfc.add}"
+                                >Add GrandfatherClock</a
+                                >
+                                <a th:href="@{/gfcorders}"
+                                   class="btn btn-primary btn-sm btn-wave waves-effect waves-light"
+                                >GFC Orders</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-body px-0 pt-2 pb-0">
+                        <table class="table table-bottom">
+                            <thead>
+                            <tr>
+                                <th scope="col" th:text="#{gfc.title}"></th>
+                                <th scope="col" th:text="#{gfc.price}">Email</th>
+                                <th scope="col" th:text="#{gfc.company}">Role</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col" th:text="#{repair.action}">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody th:remove="all-but-first">
+                            <tr th:each=" gfcItem : ${gfclists}">
+                                <td th:text="${gfcItem.getName()}">uhrenladen@gmail.com</td>
+                                <td th:text="${gfcItem.getPrice()}">0123456789</td>
+                                <td th:text="${gfcItem.getCompanyName()}">Boss</td>
+                                <td>
+                                    <form class="ui form" method="post" th:action="@{/gfccart}">
+                                        <div class="view">
+                                            <input type="hidden" name="pid" value="0" th:value="${gfcItem.id}"/>
+
+                                            <div class="btn-content">
+                                                <label for="number"></label>
+                                                <input class="forms-control" type="number" name="number" id="number" value="0"  min="0">
+                                                <div class="btn-eye">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3M7 18c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-9.8-3.2v-.1l.9-1.7h7.4c.7 0 1.4-.4 1.7-1l3.9-7l-1.7-1l-3.9 7h-7L4.3 2H1v2h2l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1c0 1.1.9 2 2 2h12v-2H7.4c-.1 0-.2-.1-.2-.2"/></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <div class="icon-container">
+                                        <a th:href="@{'/editgfc?id=' + ${gfcItem.getId()}}"><button class="btn btn-edit-light"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m16.475 5.408l2.117 2.117m-.756-3.982L12.109 9.27a2.118 2.118 0 0 0-.58 1.082L11 13l2.648-.53c.41-.082.786-.283 1.082-.579l5.727-5.727a1.853 1.853 0 1 0-2.621-2.621"/><path d="M19 15v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3"/></g></svg></button></a>
+                                        <form th:action="@{/deleteGFC}" method="post" id="deleteForm">
+                                            <input type="hidden" name="id" th:value="${gfcItem.getId()}" />
+                                            <button class="btn btn-delete-light" type="submit">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/></svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer border-top-0">
+                        <div class="d-flex align-items-center">
+                            <div></div>
+                            <div class="ms-auto">
+                                <div class="add">
+                                    <a th:if="${((page - 1) >= 0)}" th:href="'/gfclists?page=' + ${page - 1 }"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{pagination.prev}"
+                                    >Previous</a
+                                    >
+                                    <a th:if="${(page < maxPages - 1)}" th:href="'/gfclists?page=' + ${page + 1}"
+                                            class="btn btn-primary btn-sm btn-wave waves-effect waves-light" th:text="#{pagination.next}"
+                                    >Next</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

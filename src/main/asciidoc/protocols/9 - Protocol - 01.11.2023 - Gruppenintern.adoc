@@ -1,0 +1,79 @@
+= Protokoll Gruppe 09
+
+Treffen am 01.11.2023
+
+Ort:      Online +
+Beginn:   20:00 Uhr +
+Ende:     21:20 Uhr
+
+__Schriftführer:__ Darius
+
+*Nächstes Treffen:* +
+05.11.2023, 20:00 Uhr, online
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Felix - Scrum Master
+- Steve
+- Illia
+- Tim
+- Hu Ann
+- Tobias
+- Darius - Schriftführer
+
+== Bemerkungen
+Verwarnungen, besondere Vorfälle, Organisatorisches, wichtige getroffene Entscheidungen
+
+- Krankheitsbedingt findet dieses Meeting Online statt :c
+
+### Gruppeninternes Meeting
+
+== Retrospektive des letzten Sprints
+*Issue referenziert die Issue ID von GitHub*
+
+[small]_Note: Noch keine Issues auf Github._
+
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|... |2er Gruppen bilden |Pair-programming  |jeder |erledigt
+|... |eventuelle Revision Pflichtenheft |Falls Mängel bestehen  |jeder |in Bearbeitung
+|... |Prototypen der einzelnen Programmbestandteile |Aufteilung ausstehend|jeder |in Bearbeitung
+
+|===
+
+
+== Aktueller Stand
+Anmerkungen und Kritik zum aktuellen Stand der Software, den Diagrammen und den
+Dokumenten.
+
+Themenschwerpunkte :
+
+- Verteilung verbleibender Aufgaben
+
+- Arbeit im Team
+
+- Fragen in der Gruppe
+
+Aufgabenverteilung s.u.
+
+
+== Planung des nächsten Sprints
+*Issue referenziert die Issue-ID von GitHub*
+[option="headers"]
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+|2  |Klare Unterscheidung zwischen Meeting Arten| Protokolle einteilen in Stand-UP und Gruppenintern| Darius| offen
+|3  |Zeitplan Verwaltung| Eintragen der Arbeitszeiten in github| Darius| offen
+|4  |Naming Convention beachten| Stimmiges Gesamtbild durch stimmige Var-Bezeichnungen| Alle| offen
+|5  |Pflichtenheft Revision    | Ausbesserung der Kritik des Kunden| offen
+|===
+
+// See http://asciidoctor.org/docs/user-manual/=tables
+
+
+
+
