@@ -31,6 +31,7 @@ public class MyErrorController implements org.springframework.boot.web.servlet.e
                 default -> "Unknown Error Occurred";
             };
             model.addAttribute("errorString", errorMessage);
+			
 			return ERROR;
 		}
 
